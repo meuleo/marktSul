@@ -36,6 +36,7 @@
 <!--===============================================================================================-->
 <!--===== Novos estilo frontAssets ===========================================================================-->
 	<link rel="stylesheet" href="frontAssets/style.css">
+	<link rel="stylesheet" href="frontAssets/menu-mobile.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 </head>
@@ -257,8 +258,47 @@
 
 						<div class="icon-header-item icon-header text-gold cl2 hov-cl1 trans-04 p-l-22 p-r-11 position-absolute btn-menu-local">
 							<i class="zmdi zmdi-pin mr-1"></i> <span style="font-size: 14px;">Meu Local</span>
-							<div class="menu-meulocal">
-								<p>Menu meu local</p>
+							<div class="menu-meulocal p-0">
+								<div class="px-4 pt-4">
+									<div>
+										<button class="btn bg-gold col-12 py-3" style="border-radius: 30px;">
+											Entrar
+										</button>
+										<div class="text-center p-2 mt-1">
+											<a href="#" style="font-size: 14px; color: #999;">
+												Registar
+											</a>
+											<hr class="mb-0">
+										</div>
+									</div>
+								</div>
+								<div class="px-4" style="height: 65vh; overflow: auto;">
+									<div>
+										<div class="menu-local-top">
+											<a href="#" class="d-block text-dark my-2 p-2">Meus Pedidos</a>
+											<a href="#" class="d-block text-dark my-2 p-2">Minhas moedas</a>
+											<a href="#" class="d-block text-dark my-2 p-2">Central de Mensagens</a>
+											<a href="#" class="d-block text-dark my-2 p-2">Pagamento</a>
+											<a href="#" class="d-block text-dark my-2 p-2">Lista de Desejos</a>
+											<a href="#" class="d-block text-dark my-2 p-2">Meus Cupons</a>
+											
+											<hr>
+										</div>
+										<div class="menu-local-bottom">
+											<a href="#" class="d-block text-dark my-2 p-2">Configurações</a>
+											<a href="#" class="d-block text-dark my-2 p-2">AliExpress Business</a>
+											<a href="#" class="d-block text-dark my-2 p-2">DS Center</a>
+											<a href="#" class="d-block text-dark my-2 p-2">Login do vendedor</a>
+											<a href="#" class="d-block text-dark my-2 p-2">Proteção ao Consumidor</a>
+											<a href="#" class="d-block text-dark my-2 p-2">Central de Ajuda</a>
+											<a href="#" class="d-block text-dark my-2 p-2">Disputas e Recursos</a>
+											<a href="#" class="d-block text-dark my-2 p-2">Denunciar infração de propriedade intelectual</a>
+											<a href="#" class="d-block text-dark my-2 p-2">Acessibilidade</a>
+											<a href="#" class="d-block text-dark my-2 p-2">Info sobre penalidades</a>
+											<br><br>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 
@@ -274,6 +314,7 @@
 			</div>	
 		</div>
 
+		<!-- Inicio do menu mobile -->
 		<!-- Header Mobile -->
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
@@ -282,32 +323,75 @@
 			</div>
 
 			<!-- Icon header -->
-			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
-				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
-					<i class="zmdi zmdi-search"></i>
-				</div>
-
-				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
-					<i class="zmdi zmdi-shopping-cart"></i>
-				</div>
-
-				<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
-					<i class="zmdi zmdi-favorite-outline"></i>
-				</a>
+			<div class="icon-header-item icon-header text-gold cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
+				<i class="zmdi zmdi-search"></i>
 			</div>
 
+			<div class="icon-header-item icon-header text-gold cl2 hov-cl1 trans-04 p-l-22 p-r-11 position-absolute btn-menu-local-mobile">
+				<i class="zmdi zmdi-pin mr-1"></i>
+				<div class="menu-meulocal-mobile p-0">
+					<div class="px-4 pt-4">
+						<div>
+							<button class="btn bg-gold col-12 py-3" style="border-radius: 30px;">
+								Entrar
+							</button>
+							<div class="text-center p-2 mt-1">
+								<a href="#" style="font-size: 14px; color: #999;">
+									Registar
+								</a>
+								<hr class="mb-0">
+							</div>
+						</div>
+					</div>
+					<div class="px-4" style="height: 65vh; overflow: auto;">
+						<div>
+							<div class="menu-local-top">
+								<a href="#" class="d-block text-dark my-2 p-2">Meus Pedidos</a>
+								<a href="#" class="d-block text-dark my-2 p-2">Minhas moedas</a>
+								<a href="#" class="d-block text-dark my-2 p-2">Central de Mensagens</a>
+								<a href="#" class="d-block text-dark my-2 p-2">Pagamento</a>
+								<a href="#" class="d-block text-dark my-2 p-2">Lista de Desejos</a>
+								<a href="#" class="d-block text-dark my-2 p-2">Meus Cupons</a>
+								
+								<hr>
+							</div>
+							<div class="menu-local-bottom">
+								<a href="#" class="d-block text-dark my-2 p-2">Configurações</a>
+								<a href="#" class="d-block text-dark my-2 p-2">AliExpress Business</a>
+								<a href="#" class="d-block text-dark my-2 p-2">DS Center</a>
+								<a href="#" class="d-block text-dark my-2 p-2">Login do vendedor</a>
+								<a href="#" class="d-block text-dark my-2 p-2">Proteção ao Consumidor</a>
+								<a href="#" class="d-block text-dark my-2 p-2">Central de Ajuda</a>
+								<a href="#" class="d-block text-dark my-2 p-2">Disputas e Recursos</a>
+								<a href="#" class="d-block text-dark my-2 p-2">Denunciar infração de propriedade intelectual</a>
+								<a href="#" class="d-block text-dark my-2 p-2">Acessibilidade</a>
+								<a href="#" class="d-block text-dark my-2 p-2">Info sobre penalidades</a>
+								<br><br>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="icon-header-item icon-header text-gold cl2 hov-cl1 trans-04 p-l-22 p-r-11">
+				<i class="zmdi zmdi-account mr-1"></i> <span style="font-size: 14px;">Conta</span>
+			</div>
+
+			<div class="icon-header-item icon-header text-gold cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
+				<i class="zmdi zmdi-shopping-cart"></i>
+			</div>
+			
 			<!-- Button show menu -->
-			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
-				<span class="hamburger-box">
-					<span class="hamburger-inner"></span>
-				</span>
+			<div class="btn-show-menu-mobile text-gold">
+				<!-- menu icon mobile -->
+				<i class="ml-3 zmdi zmdi-menu" style="font-size: 22px; margin-top: 8px;"></i>
 			</div>
 		</div>
 
 
 		<!-- Menu Mobile -->
 		<div class="menu-mobile">
-			<ul class="topbar-mobile">
+			<!-- <ul class="topbar-mobile">
 				<li>
 					<div class="left-top-bar">
 						Free shipping for standard order over $100
@@ -333,7 +417,7 @@
 						</a>
 					</div>
 				</li>
-			</ul>
+			</ul> -->
 
 			<ul class="main-menu-m">
 				<li>
@@ -370,6 +454,8 @@
 			</ul>
 		</div>
 
+		<!-- Fim do menu mobile -->
+		 
 		<!-- Modal Search -->
 		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
 			<div class="container-search-header">

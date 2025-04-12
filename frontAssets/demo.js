@@ -43,6 +43,43 @@ document.querySelectorAll('.categoria-menu li').forEach(item => {
 });
 
 // Menu Local
-document.querySelector(".btn-menu-local").addEventListener('click', ()=> {
-  document.querySelector(".menu-meulocal").classList.toggle('categoria-content-active')
-})
+const btnMenu = document.querySelector(".btn-menu-local");
+const menu = document.querySelector(".menu-meulocal");
+
+// Abrir/fechar menu ao clicar no botão
+btnMenu.addEventListener("click", (e) => {
+  e.stopPropagation(); // evita que o clique feche imediatamente
+  menu.classList.toggle("categoria-content-active");
+});
+
+// Impedir que clique dentro do menu feche ele
+menu.addEventListener("click", (e) => {
+  e.stopPropagation();
+});
+
+// Fechar o menu ao clicar fora
+document.addEventListener("click", () => {
+  menu.classList.remove("categoria-content-active");
+});
+
+/** */
+//** */ Script Menu Local Mobile
+/** */
+const btnMenuMobile = document.querySelector(".btn-menu-local-mobile");
+const menuMobile = document.querySelector(".menu-meulocal-mobile");
+
+// Abrir/fechar menu ao clicar no botão
+btnMenuMobile.addEventListener("click", (e) => {
+  e.stopPropagation(); // evita que o clique feche imediatamente
+  menuMobile.classList.toggle("categoria-content-active");
+});
+
+// Impedir que clique dentro do menu feche ele
+menuMobile.addEventListener("click", (e) => {
+  e.stopPropagation();
+});
+
+// Fechar o menu ao clicar fora
+document.addEventListener("click", () => {
+  menuMobile.classList.remove("categoria-content-active");
+});
