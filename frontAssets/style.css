@@ -65,6 +65,7 @@
   top: 45px;
   font-size: 16px;
   color: #000;
+  overflow: hidden;
 }
 
 .menu-meulocal-mobile {
@@ -288,7 +289,7 @@
 /* Estilização do input */
 .modern-input {
   width: 100%;
-  padding: 1rem 1.7rem;
+  padding: 1rem 2.3rem;
   border: none;
   background: #ffffff;
   border-radius: 1.5rem;
@@ -383,4 +384,77 @@
 /* Efeito ao clicar */
 .list-item:active {
   transform: scale(0.98);
+}
+
+/** */
+/* Menu Loja Mobile */
+.content-menu-mobile {
+  color: #222;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.content-menu-mobile a {
+  color:#333;
+}
+
+.content-menu-mobile span {
+  padding: 4px 0;
+  display: block;
+  margin: 3px 0;
+}
+
+.content-menu-mobile-toggle {
+  max-height: 500px; /* Um valor grande o suficiente para o conteúdo */
+}
+
+.content-menu-mobile ul {
+  padding: 10px 15px;
+}
+
+/* Submenu */
+/* Submenu oculto por padrão */
+.content-submenu-mobile {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-100%, -50%); /* Escondido à esquerda */
+  opacity: 0;
+  z-index: 999;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
+  height: 80%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Quando ativo */
+.content-submenu-mobile.active {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Fechar submenu */
+.close-submenu-mobile {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.content-submenu-items a {
+  display: block;
+  margin: 3px 0;
+  padding: 8px;
 }

@@ -152,52 +152,47 @@ menuMobileLocal.addEventListener("mouseleave", () => {
 
 
 // Provincias
+// Provincias
 const provinciasDeAngola = [
-  "Bengo",
-  "Benguela",
-  "Bié",
-  "Cabinda",
-  "Cuando Cubango",
-  "Cuanza Norte",
-  "Cuanza Sul",
-  "Cunene",
-  "Huambo",
-  "Huíla",
-  "Luanda",
-  "Lunda Norte",
-  "Lunda Sul",
-  "Malanje",
-  "Moxico",
-  "Namibe",
-  "Uíge",
-  "Zaire"
+  "Bengo", "Benguela", "Bié", "Cabinda", "Cuando Cubango", "Cuanza Norte",
+  "Cuanza Sul", "Cunene", "Huambo", "Huíla", "Luanda", "Lunda Norte",
+  "Lunda Sul", "Malanje", "Moxico", "Namibe", "Uíge", "Zaire"
 ];
 
 // Gerar lista
-// Gerar lista (corrigido)
 document.querySelectorAll(".lista-provincias").forEach(container => {
   const list = document.createElement("div");
   list.classList.add("list-container");
-  
-  // Verifica se a variável existe
-  if(typeof provinciasDeAngola !== 'undefined') {
-      provinciasDeAngola.forEach(provincia => {
-          const item = document.createElement("div");
-          item.textContent = provincia;
-          item.classList.add("list-item");
-          
-          item.addEventListener('click', () => {
-              item.style.backgroundColor = '#fff3e0';
-              setTimeout(() => {
-                  item.style.backgroundColor = '';
-              }, 300);
-          });
-          
-          list.appendChild(item);
+
+  if (typeof provinciasDeAngola !== 'undefined') {
+    provinciasDeAngola.forEach(provincia => {
+      const item = document.createElement("div");
+      item.textContent = provincia;
+      item.classList.add("list-item");
+
+      item.addEventListener('click', () => {
+        // Efeito visual
+        item.style.backgroundColor = '#fff3e0';
+        setTimeout(() => {
+          item.style.backgroundColor = '';
+        }, 300);
+
+        // Encontrar o input relacionado (anterior ao container da lista)
+        const filtroInput = container.previousElementSibling?.querySelector(".filtro-provincias");
+        if (filtroInput) {
+          filtroInput.value = provincia; // Define o texto no input
+        }
+
+        // Exibir no console
+        console.log("Província selecionada:", provincia);
       });
-      container.appendChild(list);
+
+      list.appendChild(item);
+    });
+
+    container.appendChild(list);
   } else {
-      console.error('Variável provinciasDeAngola não está definida!');
+    console.error('Variável provinciasDeAngola não está definida!');
   }
 });
 
@@ -205,32 +200,78 @@ document.querySelectorAll(".lista-provincias").forEach(container => {
 function debounce(func, timeout = 300){
   let timer;
   return function(...args) {
-      const context = this; // Mantém o contexto correto
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-          func.apply(context, args);
-      }, timeout);
+    const context = this;
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(context, args);
+    }, timeout);
   };
 }
 
 // Filtro corrigido
 document.querySelectorAll(".filtro-provincias").forEach(input => {
   input.addEventListener("input", debounce(function() {
-      const filter = this.value.toLowerCase();
-      const container = this.closest('.filter-container');
+    const filter = this.value.toLowerCase();
+    const container = this.closest('.filter-container');
+    
+    if (container) {
+      const listContainer = container.nextElementSibling;
+      const items = listContainer?.querySelectorAll('.list-item');
       
-      if(container) {
-          const listContainer = container.nextElementSibling;
-          const items = listContainer?.querySelectorAll('.list-item');
-          
-          if(items) {
-              items.forEach(item => {
-                  const text = item.textContent.toLowerCase();
-                  item.style.display = text.includes(filter) 
-                      ? "flex" 
-                      : "none";
-              });
-          }
+      if (items) {
+        items.forEach(item => {
+          const text = item.textContent.toLowerCase();
+          item.style.display = text.includes(filter) ? "flex" : "none";
+        });
       }
+    }
   }));
+});
+
+
+/** */
+//
+/** Menu Loja Mobile */
+document.querySelectorAll('.expand-menu-mobile').forEach(btn => {
+  btn.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const parentLi = this.closest('li');
+    const contentMenu = parentLi.querySelector('.content-menu-mobile');
+
+    // Alterna o menu principal
+    if (contentMenu.style.maxHeight) {
+      contentMenu.style.maxHeight = null;
+    } else {
+      contentMenu.style.maxHeight = contentMenu.scrollHeight + "px";
+    }
+  });
+});
+
+// Submenu handler
+document.querySelectorAll('.content-menu-mobile ul li').forEach(item => {
+  item.addEventListener('click', function (e) {
+    const submenu = this.querySelector('.content-submenu-mobile');
+    if (submenu) {
+      e.stopPropagation();
+      submenu.classList.add('active');
+    }
+  });
+});
+
+// Fecha submenu ao clicar fora
+document.addEventListener('click', function (e) {
+  document.querySelectorAll('.content-submenu-mobile.active').forEach(el => {
+    if (!el.contains(e.target)) {
+      el.classList.remove('active');
+    }
+  });
+});
+
+document.querySelectorAll('.close-submenu-mobile').forEach(btn => {
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    const submenu = this.closest('.content-submenu-mobile');
+    submenu.classList.remove('active');
+  });
 });
